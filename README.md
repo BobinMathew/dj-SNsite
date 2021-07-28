@@ -7,3 +7,5 @@ A social networking site made by Django and bootstrap
 ### Home page
 
 ### Posting Content
+
+### Profile page
