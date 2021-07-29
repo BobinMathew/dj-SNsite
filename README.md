@@ -1,11 +1,13 @@
 # dj-SNsite
+
 A social networking site made by Django and bootstrap
-### Login Page
 
-### Signup Page
+## Login Page
 
-### Home page
+## Signup Page
 
-### Posting Content
+## Home page
 
-### Profile page
+## Posting Content
+
+## Profile page
