@@ -14,6 +14,6 @@ A social networking site made by Django and bootstrap
 
 ### additional requirements
 
-autopep8==1.5.7
-pycodestyle==2.7.0
-toml==0.10.2
+- autopep8==1.5.7
+- pycodestyle==2.7.0
+- toml==0.10.2
