@@ -1,9 +1,23 @@
 {% extends 'app1/index.html' %} {% load crispy_forms_tags %} {% block content %}
-<div class="border">
-  <img
-    class="rounded-circle account-img"
+<style>
+
+.avatar {
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+</style>
+
+<div class="border container">
+  
+
+    <img
+    class="rounded-circle account-img my-3 avatar"
     src="{{ user.profile.image.url }}"
   />
+  
 
   <h2 class="account-heading">{{ user.username }}</h2>
   <p class="text-secondary">{{ user.email }}</p>
@@ -13,12 +27,15 @@
       <fieldset class="form-group">
         <legend class="border-bottom mb-4">Profile Info</legend>
         {{u_form|crispy}}
+        <div class="my-2">
         {{p_form|crispy}}
+        </div>
       </fieldset>
       <div class="form-group">
-        <button class="btn btn-outline-info" type="submit">Update</button>
+        <button class="btn btn-outline-info my-3" type="submit">Update</button>
       </div>
-    </form>
+    </form>  
+  
 
 </div>
 
