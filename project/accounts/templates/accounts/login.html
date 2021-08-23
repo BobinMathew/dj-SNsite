@@ -1,3 +1,4 @@
+{% comment %}
 {% extends 'app1/index.html' %} 
 {% load crispy_forms_tags %}
 {% block content %}
@@ -13,6 +14,7 @@
     <small class="text-muted ml-2">
       <a href="#">Forgot Password?</a>
       {% comment %} <a href="{% url 'password-reset' %}">Forgot Password?</a> {% endcomment %}
+      {% comment %}
     </small>
     </div>
   </form>
@@ -23,3 +25,98 @@
   </div>
 </div>
 {% endblock content %}
+{% endcomment %}
+
+
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Signin Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'app1/assets/dist/css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'app1/signin.css' %}">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .border{
+        border: 5px solid #dee2e6!important;
+      }
+      .form-signin{
+        max-width: 330px;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+  </head>
+  <body>
+    
+<main class="form-signin p-3 border">
+    <form method="POST">
+    {% csrf_token %}
+    <!-- {% comment %} <img class="mb-4" src="assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> {% endcomment %} -->
+    
+    <h1 class="h3 mb-3 fw-normal text-center"> Login</h1>
+
+    <div class="form-floating">
+      {{form|crispy}}
+    </div>
+
+    <!-- {% comment %} <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div> {% endcomment %} -->
+    <button class="w-100 mt-3 btn btn-lg btn-primary" type="submit">Log In</button>
+   
+  </form>
+  
+  
+    
+    <div class="border-top pt-3">
+     <p class="mt-5 mb-3 text-muted text-center">&copy; 2017–2021</p>
+     </div>
+
+
+    <div class="border-top pt-3 text-center">
+        <small class="text-muted ml-2">
+          <a href="#">Forgot Password?</a>
+          {% comment %} <a href="{% url 'password-reset' %}">Forgot Password?</a> {% endcomment %}
+        </small>
+        <br/>
+        <small class="text-muted py-3">
+          Need an Account? <a class="ml-2" href="{% url 'register' %}">Sign Up</a>
+        </small>
+    </div>
+</main>
+
+
+    
+  </body>
+</html>
+

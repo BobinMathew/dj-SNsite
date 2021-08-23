@@ -1,6 +1,64 @@
 {% extends "app1/index.html" %} {% block content %}
 <title>{{Home}}</title>
+<style>
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    float: left;
+}
 
+.av_un{
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+</style>
+
+<div class="card mb-3">
+        {% comment %} 
+        <img src="..." class="card-img-top" alt="...">
+        {% endcomment %}
+        
+        <div class="card-body">
+          <div class="av_un">
+            <img src="{{post.author.profile.image.url}}" class="avatar" alt="Profile-pic">
+              {% comment %} 
+              <h5 class="card-title">Card title</h5>
+              {% endcomment %}
+          
+            </div>
+            <h3><a class="post-author" href="{% url 'user-posts' post.author.username %}">{{ object.author }}</a></h3>
+            
+            <p class="card-text"><small class="text-muted">Last updated on {{ object.date_posted }}</small></p>
+            
+
+            {% if object.author == user %}
+              <div>
+                <a
+                  class="btn btn-secondary btn-sm mt-1 mb-1"
+                  href="{% url 'post-update' object.id %}"
+                  >Update</a
+                >
+                <a
+                  class="btn btn-danger btn-sm mt-1 mb-1"
+                  href="{% url 'post-delete' object.id %}"
+                  >Delete</a
+                >
+              </div>
+            {% endif %}
+
+          <h5 class="card-title" >{{ object.title }}</h5>
+          <p class="card-text content">{{ object.content }}</p>
+          
+        </div>
+      </div>
+
+{% comment %} 
 <article class="media content-section">
   <img
     class="rounded-circle article-img"
@@ -29,5 +87,6 @@
     <p class="article-content">{{ object.content }}</p>
   </div>
 </article>
+ {% endcomment %}
 
 {% endblock content %}
